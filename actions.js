@@ -1,7 +1,3 @@
-$(window).on('load',function(){
-     $(".loader").css('display','none');
-});
-
 $(document).ready(function(){
     $(window).bind('scroll',function(e){
       var numSections = $('section').length;
