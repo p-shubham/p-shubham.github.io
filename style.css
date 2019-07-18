@@ -1,4 +1,16 @@
 
+.loader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 9999;
+	background-repeat: no-repeat;
+}
+
+.loader .img {
+	width: 64px;
+}
+
 body{
 	background-image: url('assets/back.png');
 	font-family:'Roboto', sans-serif;
