@@ -1,52 +1,230 @@
-body{
-	background-image: url('assets/back.png');
-	font-family:'Roboto', sans-serif;
-	color: rgb(255,255,255);
-	overflow:scroll;
-	overflow-x:hidden;
-	scroll-behavior: smooth;
+@media only screen and (max-width: 768px){
+	.location-wrapper{
+		display: none;
+	}
+	.contact-wrapper{
+		display: none;
+	}
+	.nav-bar{
+		display: none;
+	}
+	.logo_res{
+		display: none;
+	}
+
+	/*Navigation CSS Starts*/
+	body
+	{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #192328;
+	font-family: 'Ubuntu Mono', monospace;
+	color:  #ceecd9;
+	}
+
+		#menuToggle
+		{
+		display: block;
+		position: relative;
+		top: 50px;
+		left: 50px;
+		
+		z-index: 1;
+		
+		-webkit-user-select: none;
+		user-select: none;
+		}
+
+		#menuToggle a
+		{
+		text-decoration: none;
+		color: #232323;
+		
+		transition: color 0.3s ease;
+		}
+
+		#menuToggle a:hover
+		{
+		color: tomato;
+		}
+
+
+		#menuToggle input
+		{
+		display: block;
+		width: 40px;
+		height: 32px;
+		position: absolute;
+		top: -7px;
+		left: -5px;
+		
+		cursor: pointer;
+		
+		opacity: 0; /* hide this */
+		z-index: 2; /* and place it over the hamburger */
+		
+		-webkit-touch-callout: none;
+		}
+
+		/*
+		* Just a quick hamburger
+		*/
+		#menuToggle span
+		{
+		display: block;
+		width: 33px;
+		height: 4px;
+		margin-bottom: 5px;
+		position: relative;
+		
+		background: #cdcdcd;
+		border-radius: 3px;
+		
+		z-index: 1;
+		
+		transform-origin: 4px 0px;
+		
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+					background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+					opacity 0.55s ease;
+		}
+
+		#menuToggle span:first-child
+		{
+		transform-origin: 0% 0%;
+		}
+
+		#menuToggle span:nth-last-child(2)
+		{
+		transform-origin: 0% 100%;
+		}
+
+		/* 
+		* Transform all the slices of hamburger
+		* into a crossmark.
+		*/
+		#menuToggle input:checked ~ span
+		{
+		opacity: 1;
+		transform: rotate(45deg) translate(-2px, -1px);
+		background: #232323;
+		}
+
+		/*
+		* But let's hide the middle one.
+		*/
+		#menuToggle input:checked ~ span:nth-last-child(3)
+		{
+		opacity: 0;
+		transform: rotate(0deg) scale(0.2, 0.2);
+		}
+
+		/*
+		* Ohyeah and the last one should go the other direction
+		*/
+		#menuToggle input:checked ~ span:nth-last-child(2)
+		{
+		transform: rotate(-45deg) translate(0, -1px);
+		}
+
+		/*
+		* Make this absolute positioned
+		* at the top left of the screen
+		*/
+		#menuMobile
+		{
+		position: absolute;
+		width: 45%;
+		margin: -100px 0 0 -50px;
+		padding: 12%;
+		padding-top: 30%;
+		
+		background: #ededed;
+		list-style-type: none;
+		-webkit-font-smoothing: antialiased;
+		/* to stop flickering of text in safari */
+		
+		transform-origin: 0% 0%;
+		transform: translate(-100%, 0);
+		
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+		}
+
+		#menuMobile li
+		{
+		padding: 10px 0;
+		font-size: 22px;
+		}
+
+		/*
+		* And let's slide it in from the left
+		*/
+		#menuToggle input:checked ~ ul
+		{
+		transform: none;
+		}
+}
+@media only screen and (min-width: 768px){
+	nav{
+		display: none;
+	}
+
+	body{
+		background-color: #192328;
+		font-family: 'Ubuntu Mono', monospace;
+		color:  #ceecd9;
+		overflow:scroll;
+		overflow-x:hidden;
+		scroll-behavior: smooth;
+	}
 }
 
-.wrapper{
-	display: flex !important;
-}
-
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: ;
-}
-
-body::-webkit-scrollbar {
-  width: 6px;
-  background-color: transparent;
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #555;
-}
 
 .container{
-	background-color: rgb(21,21,22);
-	box-shadow: 5px 5px rgb(14,14,15);
+	background-color: #1b262c;
+	width: 100vw;
+	height: 100vh;
+}
+.nav-bar{
+	width: inherit;
+	height: max-content;
+	padding-top: 10px;
+}
+.nav-bar a{
+	padding: 5px;
+	color: #ecfbfc;
+	border: #ecfbfc;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 2px;
+}
+.nav-bar a:hover{
+	text-decoration: none;
 }
 
+.logo_res{
+	width: 10%;
+	float: right;
+	display: flex;
+	padding-top: 10px
+}
+.intro{
+	text-align: center;
+	font-size: 15rem;
+}
+
+.intro-para {
+	text-align: center;
+	font-size: medium;
+	vertical-align: center;
+	font-size: 2rem;
+	height: 37vh;
+}
 span i{
 	padding-left: 50%;
 	padding-top: 15px;
 	opacity: 0.75;
-}
-
-section {
-	height: 100vh;
-	width: 100vw;
-}
-
-.content-wrapper {
-	width: 100vw;
 }
 
 .resume{
@@ -61,23 +239,6 @@ section {
 	height: 95vh;
 }
 
-.intro-row h2 {
-	font-size: 5rem;
-}
-
-#skill {
-	height: 100vh;
-	width: 100vw;
-}
-
-#skill .load {
-    opacity: 1;
-}
-
-.icon-col img {
-	width: 8%;
-	margin-bottom: 10px;
-}
 
 div.icon-col:last-child{
 	text-align: right;
@@ -100,35 +261,14 @@ div.projects-col{
 	margin-right: 10px;
 }
 
-.project p {
-	margin-top: 10%;
-}
-
-.num {
-	font-size: 6rem;
-	opacity: 0.6;
-	margin-right: 5px;
-}
 .title-col h5{
 	padding-top: 15%;
-}
-
-.ide {
-	margin-left: 20px;
 }
 
 .location-wrapper{
 	position: fixed;
 	top: 40%;
 	left: 2.75%;
-}
-
-.exp {
-	padding-top: 18%;
-	font-size: 14px;
-}
-.exp .col-md-12 {
-	padding-top: 5%;
 }
 
 #menu ul{
@@ -147,9 +287,8 @@ div.projects-col{
 .contact-wrapper {
 	position: fixed;
 	float: right;
-	background-color: rgb(21,21,22);
 	top: 35%;
-	right: -2.5%;
+	right: -0.5%;
 	height: 25vh;
 	opacity: 0.8;
 }
@@ -188,21 +327,17 @@ div.projects-col{
 }
 
 #menu li.active, #menu li .dot:hover {
-	background-color: #fff;
+	background-color: #1b262c;
 }
 .dot{
 	width: 32px;
 	padding: 5px;
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
+.projects{
+	padding-left: 15px;
+}
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+.exp{
+	text-align: right;
+}

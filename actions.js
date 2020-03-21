@@ -1,6 +1,12 @@
+$(window).on('load', function(){
+  $('#loading').hide()
+});
+
 $(document).ready(function(){
-    $(window).bind('scroll',function(e){
-      var numSections = $('section').length;
+  $('#loading').hide()
+  $('#afterLoad').show()
+  $(window).bind('scroll',function(e){
+        var numSections = $('section').length;
         
         $('#menu li').removeClass('active');     
         $('section').each(function(i,item){
