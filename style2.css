@@ -36,8 +36,9 @@ body{
     font-weight: 100;
 }
 .box p{
-    width: 550px;
+    width: 490px;
     margin: auto;
+    line-height: 25px;
 }
 .box footer{
     font-size: 2em;
